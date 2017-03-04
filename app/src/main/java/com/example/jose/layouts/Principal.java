@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -32,19 +33,31 @@ public class Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview);
-        ArrayList necesario=new ArrayList();
-        necesario.add("DNI");
-        necesario.add("Cuenta Bancaria");
-        Formularios a=new Formularios("Transferencia", necesario, R.drawable.ic_cuentamas);
+        ArrayList<DocumentoNecesario> necesario = new ArrayList<>();
+        necesario.add(new DocumentoNecesario("DNI", R.drawable.ic_explore_black_24dp));
+        necesario.add(new DocumentoNecesario("Cuenta Bancaria", R.drawable.ic_explore_black_24dp));
+        Formularios a = new Formularios("Transferencia", necesario, R.drawable.ic_explore_black_24dp);
         formularios.add(a);
-        a=new Formularios("Cobrar Cheque", necesario, R.drawable.ic_hipoteca);
-        formularios.add(a);
-        a=new Formularios("Prestamo", necesario, R.drawable.ic_tarjeta);
-        formularios.add(a);
-        a=new Formularios("Abrir cuenta", necesario, R.drawable.ic_tarjeta);
+        ArrayList<DocumentoNecesario> necesarioo = new ArrayList<>();
+        necesarioo.add(new DocumentoNecesario("DNI", R.drawable.ic_explore_black_24dp));
+        necesarioo.add(new DocumentoNecesario("Cuenta Bancaria",R.drawable.ic_explore_black_24dp));
+        necesarioo.add(new DocumentoNecesario("Pasaporte", R.drawable.ic_explore_black_24dp));
+        necesarioo.add(new DocumentoNecesario("Abal", R.drawable.ic_explore_black_24dp));
+        a=new Formularios("Cobrar Cheque", necesarioo, R.drawable.ic_explore_black_24dp);
         formularios.add(a);
 
         initialize();
+        ListaFor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Adapter.documentoNecesario=formularios.get(position);
+                System.out.println(formularios.get(position).getDocumentosNecesarios().size());
+                Intent familyIntent=new Intent(Principal.this, Adapter.class);
+                startActivity(familyIntent);
+
+            }
+        });
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -158,14 +171,7 @@ public class Principal extends AppCompatActivity {
             holder.tvName.setText(ListaActualizada.get(position).getNombre());
             holder.icono.setImageResource(ListaActualizada.get(position).getImg());
 
-            holder.tvName.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent=new Intent(view.getContext(), Documentos.class);
-                    intent.putExtra("Nombre", ListaActualizada.get(position).getNombre());
-                    startActivity(intent);
-                }
-            });
+
 
             return convertView;
         }
