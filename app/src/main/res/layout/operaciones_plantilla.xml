@@ -19,7 +19,7 @@
         android:paddingLeft="@dimen/normalMargin"
         android:paddingRight="@dimen/normalMargin"
         android:paddingTop="@dimen/marg8"
-        app:srcCompat="@drawable/dollar" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"

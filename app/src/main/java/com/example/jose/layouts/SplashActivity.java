@@ -13,7 +13,7 @@ import java.util.TimerTask;
  * Created by Jose on 04/03/2017.
  */
 
-public class MainActivity extends Activity {
+public class SplashActivity extends Activity {
 
     private static final long SPLASH_SCREEN_DELAY = 3000;
 
@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 //Aqui la clase a mostrar
-                Intent mainIntent = new Intent().setClass(MainActivity.this, Principal.class);
+                Intent mainIntent = new Intent().setClass(SplashActivity.this, Principal.class);
                 startActivity(mainIntent);
                 finish();
             }
