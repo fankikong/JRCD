@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/listImagen"
     android:paddingRight="@dimen/normalMargin"
-    tools:context="com.example.jose.layouts.MainActivity"
+    tools:context="com.example.jose.layouts.Principal"
     android:id="@+id/relative">
 
     <ImageView
