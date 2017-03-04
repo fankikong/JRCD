@@ -1,6 +1,7 @@
 package com.example.jose.layouts;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -157,6 +158,14 @@ public class Principal extends AppCompatActivity {
             holder.tvName.setText(ListaActualizada.get(position).getNombre());
             holder.icono.setImageResource(ListaActualizada.get(position).getImg());
 
+            holder.tvName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(view.getContext(), Documentos.class);
+                    intent.putExtra("Nombre", ListaActualizada.get(position).getNombre());
+                    startActivity(intent);
+                }
+            });
 
             return convertView;
         }
