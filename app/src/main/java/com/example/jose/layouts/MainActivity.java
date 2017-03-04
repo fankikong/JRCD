@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private class VistaList {
-            RelativeLayout relativeLayout;
+            LinearLayout relativeLayout;
             TextView tvName;
             ImageView icono;
         }
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
                 holder = new VistaList();
                 convertView = inflater.inflate(R.layout.operaciones_plantilla, null);
-                holder.relativeLayout = (RelativeLayout) convertView.findViewById(R.id.relative);
+                holder.relativeLayout = (LinearLayout) convertView.findViewById(R.id.relative);
                 holder.tvName = (TextView) convertView.findViewById(R.id.textView);
                 holder.icono=(ImageView)convertView.findViewById(R.id.imageView);
                 convertView.setTag(holder);
@@ -176,9 +177,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 protected FilterResults performFiltering(CharSequence constraint) {
                     FilterResults results = new FilterResults();
-                    ArrayList<Formularios> FilteredArrList = new ArrayList<Formularios>();
+                    ArrayList<Formularios> FilteredArrList = new ArrayList<>();
                     if (ListaOriginal == null) {
-                        ListaOriginal = new ArrayList<Formularios>(ListaActualizada);
+                        ListaOriginal = new ArrayList<>(ListaActualizada);
                     }
                     if (constraint == null || constraint.length() == 0) {
 
