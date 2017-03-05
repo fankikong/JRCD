@@ -32,20 +32,9 @@ public class Principal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listview);
-        ArrayList<DocumentoNecesario> necesario = new ArrayList<>();
-        necesario.add(new DocumentoNecesario("DNI", R.drawable.ic_explore_black_24dp));
-        necesario.add(new DocumentoNecesario("Cuenta Bancaria", R.drawable.ic_explore_black_24dp));
-        Formularios a = new Formularios("Transferencia", necesario, R.drawable.ic_explore_black_24dp);
-        formularios.add(a);
-        ArrayList<DocumentoNecesario> necesarioo = new ArrayList<>();
-        necesarioo.add(new DocumentoNecesario("DNI", R.drawable.ic_explore_black_24dp));
-        necesarioo.add(new DocumentoNecesario("Cuenta Bancaria",R.drawable.ic_explore_black_24dp));
-        necesarioo.add(new DocumentoNecesario("Pasaporte", R.drawable.ic_explore_black_24dp));
-        necesarioo.add(new DocumentoNecesario("Abal", R.drawable.ic_explore_black_24dp));
-        a=new Formularios("Cobrar Cheque", necesarioo, R.drawable.ic_explore_black_24dp);
-        formularios.add(a);
-
+        int[] indices = BeaconData.serverResponse.clone();
+        formularios = BaseDeDatos.fromArray(indices);
+        setContentView(R.layout.documentos_layout);
         initialize();
         ListaFor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

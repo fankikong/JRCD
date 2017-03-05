@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 
 public class BaseDeDatos {
-    private static ArrayList<Formularios> forms = new ArrayList<>();
-    private static ArrayList<DocumentoNecesario> docs = new ArrayList<>();
-    private BaseDeDatos db = new BaseDeDatos();
+    private ArrayList<Formularios> forms = new ArrayList<>();
+    private ArrayList<DocumentoNecesario> docs = new ArrayList<>();
+    private static BaseDeDatos db = new BaseDeDatos();
 
     private BaseDeDatos() {
         //TODO: cambiar iconos
@@ -27,10 +27,18 @@ public class BaseDeDatos {
         forms.add(a);
     }
     public static ArrayList<Formularios> getForms() {
-        return forms;
+        return db.forms;
     }
 
     public static ArrayList<DocumentoNecesario> getDocs() {
-        return docs;
+        return db.docs;
+    }
+
+    public static ArrayList<Formularios> fromArray(int[] indices) {
+        ArrayList<Formularios> frm = new ArrayList<>();
+        for(int i: indices) {
+            frm.add(db.forms.get(i));
+        }
+        return frm;
     }
 }

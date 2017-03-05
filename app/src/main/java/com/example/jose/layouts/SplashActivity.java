@@ -29,13 +29,13 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 //Aqui la clase a mostrar
-                Intent mainIntent = new Intent().setClass(SplashActivity.this, Principal.class);
+                Intent mainIntent = new Intent().setClass(SplashActivity.this, WaitActivity.class);
                 startActivity(mainIntent);
                 finish();
             }
         };
 
         Timer timer = new Timer();
-        timer.schedule(task, SPLASH_SCREEN_DELAY);
+        //timer.schedule(task, SPLASH_SCREEN_DELAY);
     }
 }
