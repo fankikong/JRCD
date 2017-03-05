@@ -65,7 +65,7 @@ public class Principal extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         final MenuItem searchItem = menu.findItem(R.id.search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        //permite modificar el hint que el EditText muestra por defecto
+        //permite modificar el hint que el EditText mestra por defecto
         searchView.setQueryHint("Buscar");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
